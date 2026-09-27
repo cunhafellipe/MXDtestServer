@@ -323,7 +323,8 @@ function mainMenu() {
     s += "#b#L2#加金币 1 亿#k#l\r\n";
     s += "#b#L24#加金币（自定义数值）#k#l\r\n";
     s += "#b#L29#伤害倍率（当前 ×" + cm.getPlayer().getDmgMultiplier() + "）#k#l\r\n";
-    s += "#b#L30#攻击速度爆发（速效激发 x-8 最快档，约 9 小时）#k#l\r\n";
+    s += "#b#L30#攻击速度爆发（速效激发 x-8 最快档，约 9 小时）#k\r\n";
+    s += "#b#L33#无耗蓝模式（当前：" + (cm.getPlayer().isNoMpCost() ? "开" : "关") + "）#k\r\n";
     s += "#b#L3#洗属性点（重置为初始属性）#k#l\r\n";
     s += "#b#L4##b修改属性点（自定 STR/DEX/INT/LUK）#k#l\r\n";
     s += "#b#L5#满技能（本职业全部技能练满）#k#l\r\n";
@@ -2020,6 +2021,11 @@ function action(mode, type, selection) {
                 return;
             } else if (selection == 31) {
                 mobTierMenu();
+                return;
+            } else if (selection == 33) {
+                cm.getPlayer().setNoMpCost(!cm.getPlayer().isNoMpCost());
+                cm.dropMessage(5, "[GM] 无耗蓝模式：" + (cm.getPlayer().isNoMpCost() ? "已开启" : "已关闭"));
+                topMenu();
                 return;
             } else if (selection == 32) {
                 cm.dispose();

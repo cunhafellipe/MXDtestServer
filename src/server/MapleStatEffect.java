@@ -1464,7 +1464,9 @@ public class MapleStatEffect {
                     }
                 }
                 mpchange -= mpCon * mod;
-                if (applyfrom.getBuffedValue(MapleBuffStat.INFINITY) != null) {
+                if (applyfrom.isNoMpCost()) {
+                    mpchange = 0;
+                } else if (applyfrom.getBuffedValue(MapleBuffStat.INFINITY) != null) {
                     mpchange = 0;
                 } else if (applyfrom.getBuffedValue(MapleBuffStat.CONCENTRATE) != null) {
                     mpchange -= (int) (mpchange * (applyfrom.getBuffedValue(MapleBuffStat.CONCENTRATE).doubleValue() / 100));

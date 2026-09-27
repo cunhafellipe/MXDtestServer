@@ -576,7 +576,7 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                             map.broadcastMessage(MaplePacketCreator.killMonster((Integer)d[0], (Integer)d[1]), (Point)d[2]);
                         } catch (Exception e) {}
                     }
-                }, idx * 300);
+                }, idx * 400);
             }
         } catch (Exception e) {
             MapleMap.suppressDeathPkt.set(false);

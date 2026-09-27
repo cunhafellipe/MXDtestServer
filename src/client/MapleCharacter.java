@@ -185,6 +185,7 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
     private int energybar;
     private int gmLevel;
     private int dmgMultiplier = 1; // GM 伤害倍率（内存态，重登回 ×1）：客户端单段显示封顶 13.33 亿，服务端扣血前放大
+    private boolean noMpCost = true; // 无耗蓝模式，登录默认开启
     private int ci = 0;
     private MapleFamilyEntry familyEntry;
     private int familyId;
@@ -6064,6 +6065,8 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
         return gmLevel;
     }
 
+    public boolean isNoMpCost() { return noMpCost; }
+    public void setNoMpCost(boolean v) { this.noMpCost = v; }
     public int getDmgMultiplier() {
         return dmgMultiplier;
     }
